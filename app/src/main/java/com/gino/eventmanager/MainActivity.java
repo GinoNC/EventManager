@@ -2,6 +2,8 @@ package com.gino.eventmanager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +17,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    ListView lvEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setTitle("Event Manager");
         }
 
+        lvEvent = findViewById(R.id.lvEvent);
+
         FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
         fabAdd.setOnClickListener(v -> {
-            Intent it = new Intent(this, DetailActivity.class);
-            //it.putExtra("evtID", 0);
-            startActivity(it);
+            startActivity(new Intent(this, DetailActivity.class));
         });
     }
 
@@ -44,5 +46,12 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
+        String[] output = new String[GlobalData.evtList.size()];
+        for (int i = 0; i < GlobalData.evtList.size(); i++) {
+            output[i] = GlobalData.evtList.get(i).name;
+        }
+
+        ArrayAdapter ada = new ArrayAdapter(this, android.R.layout.simple_list_item_1, output);
+        lvEvent.setAdapter(ada);
     }
 }

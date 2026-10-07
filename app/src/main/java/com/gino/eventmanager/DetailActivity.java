@@ -129,25 +129,25 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void saveData() {
-        String etype = "";
+        String eType = "";
         if (rbTypeConference.isChecked()) {
-            etype = "Conference";
+            eType = "Conference";
         }
         else if (rbTypeWorkshop.isChecked()) {
-            etype = "Workshop";
+            eType = "Workshop";
         }
         else if (rbTypeSeminar.isChecked()) {
-            etype = "Seminar";
+            eType = "Seminar";
         }
         else if (rbTypeSocial.isChecked()) {
-            etype = "Social";
+            eType = "Social";
         }
         else {
-            etype = "Other";
+            eType = "Other";
         }
 
         EventModel evt = new EventModel(etName.getText().toString(), etDate.getText().toString(), etLocation.getText().toString(),
-                etOrganiser.getText().toString(), etype);
+                etOrganiser.getText().toString(), eType);
         GlobalData.evtList.add(evt);
 
         finish();

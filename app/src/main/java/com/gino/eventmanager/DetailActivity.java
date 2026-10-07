@@ -62,7 +62,6 @@ public class DetailActivity extends AppCompatActivity {
         btnSave.setOnClickListener(v -> {
             if (inputValidation()) {
                 saveData();
-                finish();
             }
         });
     }
@@ -130,6 +129,27 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void saveData() {
+        String etype = "";
+        if (rbTypeConference.isChecked()) {
+            etype = "Conference";
+        }
+        else if (rbTypeWorkshop.isChecked()) {
+            etype = "Workshop";
+        }
+        else if (rbTypeSeminar.isChecked()) {
+            etype = "Seminar";
+        }
+        else if (rbTypeSocial.isChecked()) {
+            etype = "Social";
+        }
+        else {
+            etype = "Other";
+        }
 
+        EventModel evt = new EventModel(etName.getText().toString(), etDate.getText().toString(), etLocation.getText().toString(),
+                etOrganiser.getText().toString(), etype);
+        GlobalData.evtList.add(evt);
+
+        finish();
     }
 }

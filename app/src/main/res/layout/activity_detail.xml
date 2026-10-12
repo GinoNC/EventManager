@@ -8,7 +8,7 @@
     tools:context=".DetailActivity">
 
     <EditText
-        android:id="@+id/etName"
+        android:id="@+id/etEventName"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etDate"
+        android:id="@+id/etEventDate"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -33,10 +33,10 @@
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
+        app:layout_constraintTop_toBottomOf="@+id/etEventName" />
 
     <EditText
-        android:id="@+id/etLocation"
+        android:id="@+id/etEventLocation"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
@@ -48,10 +48,10 @@
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDate" />
+        app:layout_constraintTop_toBottomOf="@+id/etEventDate" />
 
     <EditText
-        android:id="@+id/etOrganiser"
+        android:id="@+id/etEventOrganiser"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -62,10 +62,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLocation" />
+        app:layout_constraintTop_toBottomOf="@+id/etEventLocation" />
 
     <RadioGroup
-        android:id="@+id/rgType"
+        android:id="@+id/rgEventType"
         android:layout_width="0dp"
         android:layout_height="250dp"
         android:layout_marginStart="16dp"
@@ -73,34 +73,34 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etOrganiser">
+        app:layout_constraintTop_toBottomOf="@+id/etEventOrganiser">
 
         <RadioButton
-            android:id="@+id/rbTypeConference"
+            android:id="@+id/rbEventTypeConference"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Conference" />
 
         <RadioButton
-            android:id="@+id/rbTypeWorkshop"
+            android:id="@+id/rbEventTypeWorkshop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Workshop" />
 
         <RadioButton
-            android:id="@+id/rbTypeSeminar"
+            android:id="@+id/rbEventTypeSeminar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Seminar" />
 
         <RadioButton
-            android:id="@+id/rbTypeSocial"
+            android:id="@+id/rbEventTypeSocial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Social" />
 
         <RadioButton
-            android:id="@+id/rbTypeOther"
+            android:id="@+id/rbEventTypeOther"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Other" />
@@ -114,7 +114,7 @@
         android:layout_marginTop="24dp"
         android:text="Clear"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rgType" />
+        app:layout_constraintTop_toBottomOf="@+id/rgEventType" />
 
     <Button
         android:id="@+id/btnSave"
@@ -124,5 +124,5 @@
         android:layout_marginEnd="18dp"
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rgType" />
+        app:layout_constraintTop_toBottomOf="@+id/rgEventType" />
 </androidx.constraintlayout.widget.ConstraintLayout>

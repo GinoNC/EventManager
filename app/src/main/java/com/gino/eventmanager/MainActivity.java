@@ -32,14 +32,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // ===== initial
-		if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Event Manager");
-        }
-		
         rvMain = findViewById(R.id.rvMain);
         rvLM = new LinearLayoutManager(this);
         rvADA = new ItemAdapter();
-        
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Event Manager");
+        }
 
         FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
         fabAdd.setOnClickListener(v -> {

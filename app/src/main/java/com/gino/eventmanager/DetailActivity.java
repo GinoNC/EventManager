@@ -38,11 +38,6 @@ public class DetailActivity extends AppCompatActivity {
         });
 
         // ===== initial
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Event Detail - Add");
-        }
-
         etEventName = findViewById(R.id.etEventName);
         etEventDate = findViewById(R.id.etEventDate);
         etEventLocation = findViewById(R.id.etEventLocation);
@@ -56,6 +51,11 @@ public class DetailActivity extends AppCompatActivity {
 
         Button btnClear = findViewById(R.id.btnClear);
         Button btnSave = findViewById(R.id.btnSave);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("Event Detail - Add");
+        }
 
         // ===== set listener
         btnClear.setOnClickListener(v -> {

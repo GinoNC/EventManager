@@ -2,6 +2,8 @@ package com.gino.eventmanager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,9 +18,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
+    // ===== declare all components
     RecyclerView rvMain;
     RecyclerView.LayoutManager rvLM;
     RecyclerView.Adapter rvADA;
+    TextView tvEmpty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +36,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // ===== initial
+        // ===== connect all components
         rvMain = findViewById(R.id.rvMain);
         rvLM = new LinearLayoutManager(this);
         rvADA = new ItemAdapter();
+        tvEmpty = findViewById(R.id.tvEmpty);
+		FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Event Manager");
         }
-
-        FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
+        
+		// set listener
         fabAdd.setOnClickListener(v -> {
             startActivity(new Intent(this, DetailActivity.class));
         });
@@ -50,7 +57,17 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
-        rvMain.setLayoutManager(rvLM);
-        rvMain.setAdapter(rvADA);
+        // ===== if Event list is empty, show empty message
+        if (GlobalData.evtList.isEmpty()) {
+            rvMain.setVisibility(View.GONE);
+            tvEmpty.setVisibility(View.VISIBLE);
+        }
+        else {
+            rvMain.setVisibility(View.VISIBLE);
+            tvEmpty.setVisibility(View.GONE);
+
+            rvMain.setLayoutManager(rvLM);
+            rvMain.setAdapter(rvADA);
+        }
     }
 }

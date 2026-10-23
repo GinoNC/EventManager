@@ -22,6 +22,7 @@ import java.text.SimpleDateFormat;
 
 public class DetailActivity extends AppCompatActivity {
 
+    // ===== declare all components
     EditText etEventName, etEventDate, etEventLocation, etEventOrganiser;
     RadioGroup rgEventType;
     RadioButton rbEventTypeConference, rbEventTypeWorkshop, rbEventTypeSeminar, rbEventTypeSocial, rbEventTypeOther;
@@ -38,6 +39,7 @@ public class DetailActivity extends AppCompatActivity {
         });
 
         // ===== initial
+        // ===== connect all components
         etEventName = findViewById(R.id.etEventName);
         etEventDate = findViewById(R.id.etEventDate);
         etEventLocation = findViewById(R.id.etEventLocation);
